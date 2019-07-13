@@ -75,9 +75,9 @@ app.use(function(err, req, res, next) {
     res.status(500).send("Something broke!")
 })
 
-const server = https.createServer({
-    key: fs.readFileSync('./server.key'),
-    cert: fs.readFileSync('./server.cert')
-}, app)
+// const server = https.createServer({
+//     key: fs.readFileSync('./server.key'),
+//     cert: fs.readFileSync('./server.cert')
+// }, app)
 
-server.listen(port, () => console.log(`App listening on port ${port}!`))
+app.listen(port, () => console.log(`App listening on port ${port}!`))

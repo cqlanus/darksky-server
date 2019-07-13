@@ -6,7 +6,7 @@ const morgan = require("morgan")
 const https = require('https')
 const fs = require('fs')
 const querystring = require('querystring')
-const port = 5000
+const port = process.env.PORT || 5000
 
 const DARK_SKY_KEY = process.env.DARK_SKY_KEY
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN

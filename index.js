@@ -8,6 +8,8 @@ const fs = require('fs')
 const querystring = require('querystring')
 const port = process.env.PORT || 5000
 
+const getSkewTData = require('./utils/skewt')
+
 const DARK_SKY_KEY = process.env.DARK_SKY_KEY
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN
 const lat = "41.8781"
@@ -64,6 +66,28 @@ app.get("/geocode", (req, res, next) => {
 
     const url = `${baseUrl}${encodedSearch}.json?access_token=${MAPBOX_ACCESS_TOKEN}`
     request(url)
+        .then(data => {
+            res.send(data)
+        })
+        .catch(next)
+})
+
+app.get('/reversegeocode', (req, res, next) => {
+    const baseUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
+    const { latitude, longitude } = req.query
+    const queryParam = `${longitude},${latitude}`
+
+    const url = `${baseUrl}${queryParam}.json?access_token=${MAPBOX_ACCESS_TOKEN}`
+    request(url)
+        .then(data => {
+            res.send(data)
+        })
+        .catch(next)
+})
+
+app.get('/skewt', (req, res, next) => {
+    const { airport } = req.query
+    getSkewTData(airport)
         .then(data => {
             res.send(data)
         })

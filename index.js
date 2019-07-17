@@ -22,6 +22,8 @@ const request = async (url, params) => {
     return await res.json()
 }
 
+const isDev = () => process.env.NODE_ENV === "dev"
+
 const errorHandler = (err, req, res, next) => {
     if (res.headersSent) {
         return next(err)
@@ -31,7 +33,7 @@ const errorHandler = (err, req, res, next) => {
 }
 
 var corsOptions = {
-    origin: "https://localhost:3000",
+    origin: isDev() ? "https://localhost:3000" : "https://master.d2374hhhwbye5z.amplifyapp.com/"
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
@@ -104,4 +106,4 @@ app.use(function(err, req, res, next) {
 //     cert: fs.readFileSync('./server.cert')
 // }, app)
 
-app.listen(port, () => console.log(`App listening on port ${port}!`))
+app.listen(port, () => console.log(`App listening on port ${port}! ENV: ${process.env.NODE_ENV}`))

@@ -38,7 +38,7 @@ const getOrigin = (origin, callback) => {
 const request = async (url, params) => {
     const headers = {
         "Access-Control-Allow-Origin":
-            "darkskyserver-env.ay8mnafzh5.us-east-2.elasticbeanstalk.com",
+            "https://darkskyserver-env.ay8mnafzh5.us-east-2.elasticbeanstalk.com",
         "Access-Control-Allow-Credential": true,
         mode: "cors",
         credentials: "omit",

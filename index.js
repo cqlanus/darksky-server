@@ -38,7 +38,7 @@ const getOrigin = (origin, callback) => {
 const request = async (url, params) => {
     const headers = {
         "Access-Control-Allow-Origin":
-            "https://master.d2374hhhwbye5z.amplifyapp.com",
+            "https://master.d5tokylh7sveh.amplifyapp.com",
         "Access-Control-Allow-Credential": true,
         mode: "cors",
         credentials: "omit",

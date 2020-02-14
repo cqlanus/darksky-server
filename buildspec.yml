@@ -20,7 +20,7 @@ phases:
 artifacts:
   files:
     - index.js
-    - utills/skewt.js
+    - utils/skewt.js
     - package.json
     - node_modules/express/**/*
     - node_modules/node_fetch/**/*

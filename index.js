@@ -22,6 +22,7 @@ const whitelist = [
     "https://localhost:3000",
     "https://localhost:8081",
     undefined,
+    "https://master.d5tokylh7sveh.amplifyapp.com",
     "https://master.d2374hhhwbye5z.amplifyapp.com",
     "https://weather.chrislanus.com",
 ];

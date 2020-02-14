@@ -80,6 +80,7 @@ app.all('/', function(req, res, next) {
 
 app.get("/forecast", (req, res, next) => {
     const headers = {
+        "Origin": "https://darkskyserver-env.ay8mnafzh5.us-east-2.elasticbeanstalk.com",
         "Access-Control-Allow-Origin": "https://localhost:5000/",
         "Access-Control-Allow-Credential": true,
     };
@@ -139,6 +140,7 @@ app.get("/skewt", (req, res, next) => {
 })
 
 app.use(function(err, req, res, next) {
+    console.log({ url: req.url });
     console.error(err.stack);
     res.status(500).send("Something broke!");
 });
